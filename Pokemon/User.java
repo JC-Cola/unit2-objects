@@ -11,8 +11,11 @@ public class User extends Actor
     private String name;
     private Pokemon pokemon;
     
-    public String User(String name){
-        return this.name;
+    public User(String name){
+        this.name = name;
+        this.pokemon=null;
+        GreenfootImage img = new GreenfootImage(name.toUpperCase()+" ", 28, Color.WHITE, Color.BLUE);
+        this.setImage(img);
     }
     public void setPokemon(Pokemon p){
         this.pokemon = p;
@@ -20,13 +23,18 @@ public class User extends Actor
     public Pokemon getPokemon(){
         return this.pokemon;
     }
-    public void switchs(){
+    public void switchPokemon(Pokemon p){
+        setPokemon(p);
     }
     public void heal(){
+        if(this.pokemon!=null){
+            this.pokemon.heal();
+        }
     }
     public void attack(String name, User enemy){
     }
     public void isEndGame(){
+        
     }
     /**
      * Act - do whatever the User wants to do. This method is called whenever
